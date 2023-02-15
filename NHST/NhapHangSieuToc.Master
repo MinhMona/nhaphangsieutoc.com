@@ -1,0 +1,522 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NhapHangSieuToc.master.cs" Inherits="NHST.NhapHangSieuToc" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <title>NHẬP HÀNG SIÊU TỐC</title>
+
+    <link rel="stylesheet" href="/App_Themes/NHSToc/css/responsive.css" media="all" />
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/App_Themes/NHSToc/css/style.css" media="all">
+    <link rel="shortcut icon" href="/App_Themes/NHSToc/images/favicon/favicon.ico" type="image/x-icon">
+    <script src="/App_Themes/MinhAn/js/jquery-3.4.1.min.js"></script>
+    <script src="/App_Themes/NHSToc/js/jquery-1.9.1.min.js"></script>
+    <link href="/App_Themes/NHAZ/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <asp:Literal runat="server" ID="ltrHeader"></asp:Literal>
+    <asp:Literal ID="ltrSEO" runat="server"></asp:Literal>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:Literal ID="ltr_infor" runat="server"></asp:Literal>
+
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <div id="cfacebook">
+            <a href="javascript:;" class="chat_fb" onclick="return:false;"><i class="fab fa-facebook-square"></i>Phản hồi khách hàng</a>
+            <div class="fchat">
+                <div class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/nhaphang1688taobao/" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+            </div>
+        </div>
+
+        <header id="header">
+            <div class="top-hd">
+                <div class="all">
+                    <div class="main">
+                        <div class="left">
+                            <asp:Literal runat="server" ID="ltrTop"></asp:Literal>
+                        </div>
+                        <div class="right">
+                            <asp:Literal runat="server" ID="ltrLogin"></asp:Literal>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-hd">
+                <div class="all">
+                    <div class="main">
+                        <div class="logo">
+                            <asp:Literal runat="server" ID="ltrLogo"></asp:Literal>
+                        </div>
+                        <div class="activity-info">
+                            <div class="activity-thumb">
+                                <div class="thumb-img">
+                                    <div class="circle"><i class="fa fa-phone"></i></div>
+                                </div>
+                                <div class="info">
+                                    <h4 class="title">HOTLINE</h4>
+                                    <asp:Literal runat="server" ID="ltrTopPhone"></asp:Literal>
+                                </div>
+                            </div>
+                            <div class="activity-thumb">
+                                <div class="thumb-img">
+                                    <div class="circle"><i class="fa fa-clock-o"></i></div>
+                                </div>
+                                <div class="info">
+                                    <h4 class="title">Giờ hoạt động</h4>
+                                    <asp:Literal runat="server" ID="ltrTimeWork"></asp:Literal>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="" id="main-nav">
+            <div class="all">
+                <div class="main">
+                    <div class="inner">
+                        <asp:Literal runat="server" ID="ltrMenu"></asp:Literal>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer id="footer">
+            <div class="all">
+                <div class="main">
+                    <div class="inner">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="/App_Themes/NHSToc/images/logo-footer.png" alt=""></a>
+                        </div>
+                        <div class="ft-widgets">
+                            <asp:Literal runat="server" ID="ltrFooter"></asp:Literal>
+                            <div class="widget div5">
+                                <div class="widget-tt" style="text-align: justify;">Công ty</div>
+                                <ul class="ft-list" style="text-align: justify;">
+                                    <li class="width100"><a href="https://nhaphangsieutoc.com/chuyen-muc/gioi-thieu/ve-chung-toi">Về Chúng tôi</a></li>
+                                    <li class="width100"><a href="https://nhaphangsieutoc.com/chinh-sach/dieu-khoan--khieu-nai-2">Điều khoản</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget div5" style="text-align: justify;">
+                                <div class="widget-tt">NGÀNH HÀNG</div>
+                                <ul class="ft-list">
+                                    <li class="width100"><a href="https://www.taobao.com/markets/nvzhuang/taobaonvzhuang?spm=a21bo.50862.201867-main.2.Xif9GL" target="_blank" rel="noopener">Thời trang nữ</a></li>
+                                    <li class="width100"><a href="https://www.taobao.com/markets/nanzhuang/index2016?spm=a21bo.50862.201867-main.3.Xif9GL" target="_blank" rel="noopener">Thời trang nam </a></li>
+                                    <li class="width100"><a href="https://www.taobao.com/markets/qbb/index?spm=a21bo.50862.201867-links-2.1.Xif9GL" target="_blank" rel="noopener">Đồ d&ugrave;ng cho b&eacute; </a></li>
+                                    <li class="width100"><a href="https://www.taobao.com/markets/coolcity/coolcityHome?spm=a21bo.50862.201867-links-6.32.Xif9GL" target="_blank" rel="noopener">Đồ Phượt </a></li>
+                                    <li class="width100"><a href="https://s.taobao.com/list?spm=a21bo.50862.201867-links-11.1.Xif9GL&amp;source=youjia&amp;q=%E5%AE%B6%E5%85%B7" target="_blank" rel="noopener">Nội thất </a></li>
+                                    <li class="width100"><a href="https://www.taobao.com/market/3c/home.php?spm=a219r.lm872.0.0.I68wZi" target="_blank" rel="noopener">Điện tử </a></li>
+                                </ul>
+                            </div>
+                            <div class="widget div5" style="text-align: justify;">
+                                <div class="widget-tt">HỖ TRỢ</div>
+                                <ul class="ft-list">
+                                    <li class="width100"><a href="https://nhaphangsieutoc.com/chuyen-muc/huong-dan/huong-dan-dat-hang">Hướng dẫn</a></li>
+                                    <li class="width100"><a href="https://nhaphangsieutoc.com/chuyen-muc/huong-dan/nap-tien-va-rut-tien">Nạp tiền</a></li>
+                                    <li class="width100"><a href="https://nhaphangsieutoc.com/chuyen-muc/huong-dan/mot-so-thac-mac-khi-moi-dat-hang">C&acirc;u hỏi thường gặp</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget div5" style="text-align: justify;">
+                                <div class="widget-tt">Liên hệ</div>
+                                <ul class="ft-list">
+                                    <li class="width100"><a>Hotline:
+                                        <br />
+                                        024.3856.7333</a></li>
+                                    <li class="width100"><a>Email:
+                                        <br />
+                                        admin@nhaphangsieutoc.com</a></li>
+                                    <li class="width100"><a>Địa chỉ:
+                                        <br />
+                                        160 Hào Nam, Quận Đống Đa, Hà Nội</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget div5">
+                                <div class="widget-tt">MẠNG XÃ HỘI</div>
+                                <ul class="ft-list cus">
+                                    <li class="cus-icon"><a href="https://www.facebook.com/nhaphang1688taobao/"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="cus-icon"><a href="https://nhaphangsieutoc.com/"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="cus-icon"><a href="https://nhaphangsieutoc.com/"><i class="fa fa-instagram"></i></a></li>
+                                    <li class="cus-icon"><a href="https://nhaphangsieutoc.com/"><i class="fa fa-skype"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sys-txt">
+                <a href="https://nhaphangsieutoc.com/" target="_blank" title="© Copyright NHAPHANGSIEUTOC">© Copyright NHAPHANGSIEUTOC</a>&nbsp;
+            </div>
+        </footer>
+        <asp:Literal runat="server" ID="ltrFooterScript"></asp:Literal>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NHSToc/js/SmoothScroll.js"></script>
+        <script src="/App_Themes/NHSToc/js/slick/slick.min.js"></script>
+        <script src="/App_Themes/NHSToc/js/wow.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_roqaeKE7ULRUNw5wG0i8TqvWRsSJ2JY"></script>
+        <script src="/App_Themes/NHSToc/js/master.js"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <script>
+            new WOW().init();
+            function isEmpty(str) {
+                return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+            }
+
+            jQuery(document).ready(function () {
+                jQuery(".chat_fb").click(function () {
+                    jQuery('.fchat').toggle('slow');
+                });
+            });
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=1916689885307106&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function closewebinfo() {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/closewebinfo",
+                    //data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            $(".webinfo").remove();
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+        </script>
+        <script>
+            $(function () {
+                $(".acc-info-btn").click(function () {
+                    $(".status-mobile").addClass("open");
+                    $(".overlay-status-mobile").show();
+                    return false;
+                })
+                $(".overlay-status-mobile").click(function () {
+                    $(".status-mobile").removeClass("open");
+                    $(this).hide();
+                })
+                $(".mobile-menu-btn").click(function () {
+                    $(this).addClass("active")
+                    $(".main-menu").addClass("open");
+                })
+                $(".main-menu").click(function () {
+                    $(".mobile-menu-btn").removeClass("active");
+                    $(this).removeClass("open");
+                })
+            })
+        </script>
+        <style>
+            #cfacebook {
+                position: fixed;
+                bottom: 0px;
+                right: 20px;
+                z-index: 999999999999999;
+                width: 250px;
+                height: auto;
+                box-shadow: 6px 6px 6px 10px rgba(0,0,0,0.2);
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                overflow: hidden;
+            }
+
+                #cfacebook .fchat {
+                    float: left;
+                    width: 100%;
+                    height: 270px;
+                    overflow: hidden;
+                    display: none;
+                    background-color: #fff;
+                }
+
+                    #cfacebook .fchat .fb-page {
+                        margin-top: -130px;
+                        float: left;
+                    }
+
+                #cfacebook a.chat_fb {
+                    float: left;
+                    padding: 0 25px;
+                    width: 250px;
+                    color: #fff;
+                    text-decoration: none;
+                    height: 40px;
+                    line-height: 40px;
+                    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+                    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);
+                    background-repeat: repeat-x;
+                    background-size: auto;
+                    background-position: 0 0;
+                    background-color: #3a5795;
+                    border: 0;
+                    border-bottom: 1px solid #133783;
+                    z-index: 9999999;
+                    margin-right: 12px;
+                    font-size: 18px;
+                }
+
+                    #cfacebook a.chat_fb:hover {
+                        color: yellow;
+                        text-decoration: none;
+                    }
+
+            .zalo-icon {
+                width: auto !important;
+                height: auto !important;
+            }
+
+            .fixed-contact {
+                position: fixed;
+                right: 15px;
+                top: 30%;
+                z-index: 99999;
+                display: inline-block;
+            }
+
+                .fixed-contact img {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                }
+
+
+            /*menu hy*/
+
+            .main-menu .main-menu-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+                .main-menu .main-menu-nav li a {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    line-height: 20px;
+                    padding: 10px 20px;
+                    -webkit-transition: all .3s ease-in-out;
+                    -moz-transition: all .3s ease-in-out;
+                    -o-transition: all .3s ease-in-out;
+                    -ms-transition: all .3s ease-in-out;
+                    transition: all .3s ease-in-out;
+                    border-radius: 20px;
+                    -webkit-border-radius: 20px;
+                    color: white;
+                }
+
+                    .main-menu .main-menu-nav li a:hover {
+                        background-color: white;
+                        color: #e84545;
+                    }
+
+                .main-menu .main-menu-nav li {
+                    list-style-type: none;
+                }
+            /*menu-mobile*/
+            .hamburger-btn {
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                position: relative;
+            }
+
+            .main-menu-btn {
+                display: none;
+            }
+
+            .hamburger-btn .bar {
+                width: 30px;
+                height: 3px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                background-color: #e84545;
+                -webkit-transition: 0.3s;
+                transition: 0.3s;
+                border-radius: 2px;
+            }
+
+                .hamburger-btn .bar::before, .hamburger-btn .bar::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    width: 30px;
+                    height: 3px;
+                    background-color: #e84545;
+                    -webkit-transition: 0.3s;
+                    transition: 0.3s;
+                    border-radius: 2px;
+                }
+
+                .hamburger-btn .bar::before {
+                    top: -8px;
+                }
+
+                .hamburger-btn .bar::after {
+                    top: 8px;
+                }
+
+            .hamburger-btn.active .bar::after {
+                top: 0;
+                -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+            }
+
+            .hamburger-btn.active .bar {
+                background-color: transparent;
+            }
+
+                .hamburger-btn.active .bar::before {
+                    top: 0;
+                    -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+
+            .main-menu.active {
+                right: 0;
+            }
+
+            .main-menu-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                display: none;
+            }
+            .ratio-box img {
+                max-width: 80%;
+            }
+
+
+            @media screen and (max-width: 768px) {
+                .main-menu {
+                    position: fixed;
+                    top: 0;
+                    left: unset;
+                    right: 100vw;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0;
+                    -webkit-transform: translate(0, 0);
+                    transform: translate(0, 0);
+                    text-align: left;
+                    -webkit-transition: 0.2s;
+                    transition: 0.2s;
+                    z-index: 999;
+                }
+
+                    .main-menu .main-menu-nav {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 270px;
+                        height: 100%;
+                        z-index: 2;
+                        padding: 20px 0 50px;
+                        border-radius: 0;
+                        background: #e84545;
+                        display: block;
+                    }
+
+                .main-menu-overlay {
+                    display: block;
+                }
+
+                .main-menu-btn {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: -115px;
+                    z-index: 999;
+                }
+
+                #main-nav .inner {
+                    background: transparent;
+                }
+                .activity-thumb .circle {
+                    width: 30px;
+                    height: 30px;
+                }
+                .activity-thumb .thumb-img {
+                    margin-right: 10px;
+                }
+                .activity-thumb .info .title {
+                    font-size: 12px;
+                }
+                .activity-thumb .circle .fa {
+                    top: 47%;
+                }
+                /*#header .activity-info .activity-thumb {
+                    width: 35%;
+                }*/
+                #header .activity-info .activity-thumb + .activity-thumb {
+                    margin-top: 0 !important;
+                }
+                #header .logo img {
+                    width: 150px;
+                    height: auto;
+                    margin-right: auto;
+                }
+                .service-page-section .columns .left {
+                    width: 100%;
+                }
+                .service-page-section .columns .right {
+                    width: 100%;
+                }
+                .price-section .guide-list .columns .column-1 {
+                    width: 50%;
+                }
+                
+                .container {
+                    padding :0;
+                }
+            }
+            @media screen and (max-width: 375px) {
+                 .price-section .guide-list .columns .column-1 {
+                    width: 100%;
+                }
+            }
+        </style>
+        <script>
+            $('.main-menu-btn').on('click', function () {
+                $(this).addClass('active');
+                $('.main-menu').addClass('active');
+            });
+
+            $('.main-menu-overlay').on('click', function () {
+                $('.main-menu-btn').removeClass('active');
+                $('.main-menu').removeClass('active');
+            });
+        </script>
+    </form>
+</body>
+</html>

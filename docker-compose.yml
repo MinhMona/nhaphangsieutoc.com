@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  nhst:
+    image: nhst
+    build:
+      context: .\NHST
+      dockerfile: Dockerfile
